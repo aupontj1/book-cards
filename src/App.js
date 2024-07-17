@@ -1,16 +1,27 @@
 import BooksCreate from "./comps/BooksCreate";
 import BooksList from "./comps/BooksList";
-import BooksShow from "./comps/BooksShow";
-import BooksEdit from "./comps/BooksEdit";
+import { useState } from "react";
 
 
 function App() {
+  const [books, setBooks] = useState([]);
+
+  const createBook = (title) => {
+    const updatedBooks = [
+      ...books,
+      {
+        id: Math.round(Math.random() * 9999), 
+        title
+      }
+    ]
+    setBooks(updatedBooks);
+    console.log(updatedBooks);
+  }
+
   return (
-    <div className="App">
-      <BooksCreate />
-      <BooksList />
-      <BooksShow />
-      <BooksEdit />
+    <div className="app">
+      <BooksList books={books} />
+      <BooksCreate onCreate={createBook} />
     </div>
   );
 }

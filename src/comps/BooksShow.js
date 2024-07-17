@@ -1,9 +1,9 @@
-const BooksShow = () => {
-    return(
-        <div>
-            BooksShow
-        </div>
 
+const BooksShow = ({book}) => {
+    return(
+        <div className="book-show">
+            {book.title}
+        </div>
     );
 };
 
