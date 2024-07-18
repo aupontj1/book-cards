@@ -1,12 +1,15 @@
 import { useState } from "react";
 
 const BooksCreate = ({onCreate}) => {
+    // Grabs the title from the form 
     const [title, setTitle] = useState('');
 
+    // Handles the text inside the input 
     const handleChange = (e) => {
         setTitle(e.target.value)
     }
 
+    // Handles the form element functionality
     const handleSubmit = (event) => {
         event.preventDefault();
         onCreate(title);
